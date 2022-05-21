@@ -19,6 +19,9 @@
     .nav-text{
       color: white;
     }
+    .nav-text:hover{
+      color: #ffae42;
+    }
     .navbar-brand{
       color:white;
     }
@@ -72,7 +75,8 @@
     color: white;
   }
   .pricing{
-    background-color: #5b43d6;
+    background: linear-gradient(to bottom,#7a19f1,#332179);
+    background-attachment: fixed;
   }
   .pricing__header {
     margin-top: 5rem;
@@ -81,21 +85,79 @@
   }
   .basic{
     background: white;
-    position: relative;
+     position: relative; 
+    display: block;
     border-radius: 20px;
+    text-align: center;
+  }
+  .pricing__list{
+    list-style-type: none;
+    display: block;
+    font-size: 14px;
+    line-height: 2.0;
+    padding: 5px, 20px;
+    text-align: center;
+    margin-top: 50px;
   }
   .standard{
     background: white;
     position: relative;
     border-radius: 20px;
+    text-align: center;
   }
   .premium{
     background: white;
     position: relative;
     border-radius: 20px;
+    text-align: center;
+  }
+  .basic__heading{
+    margin-top: 2rem;
+  }
+  
+  .basic::before{
+   
+    content: '';
+    background: #80808024;
+    top: -125px;
+    left: -220px;
+    z-index: 5;
+    height: 180px;
+    position: absolute;
+     /* display: block; */ 
+    width: 1000px;
+    transform: rotate(-5deg);
+
+  } 
+  .basic::after{
+    content: '';
+    background: red;
+    width: 1000px;
+    height: 180px;
+    position: absolute;
+    z-index: 5;
+    transform: rotate(106deg);
+    top: -220px;
+    left: -470px;
+    background: #80808024;
+  }
+  .basic-btn{
+    border-color: #797979;
+    color: #797979;
+    margin-bottom: 20px;
+  }
+  .standard-btn{
+    background-color: #5b43d6;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .premium-btn{
+    background-color: #ffcb05;
+    margin-bottom: 20px;
   }
   .btn--send{
     background-color: #5b43d6;
+    color: white;
   }
   @media (max-width: 375px) {
     .pricing--option{
@@ -114,14 +176,14 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll scroll-nav" style="--bs-scroll-height: 100px;">
               <li class="nav-item">
-                <a class="nav-link nav-text text-white" href="#services">SERVICES</a>
+                <a class="nav-link nav-text text-white scroll-item" href="#services">SERVICES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-text text-white" href="#portfolio">PORTFOLIO</a>
+                <a class="nav-link nav-text text-white scroll-item" href="#portfolio">PORTFOLIO</a>
               </li> <li class="nav-item">
-                <a class="nav-link nav-text text-white" href="#pricing">PRICING</a>
+                <a class="nav-link nav-text text-white  scroll-item" href="#pricing">PRICING</a>
               </li>
             
 
@@ -148,7 +210,7 @@
     </header>
     <hr>
     
-   <div class="container">
+   <div id="portfolio" class="container">
     <div class="container section--1">
       <div>
         <p class="section--1__header text-center">PORTFOLIO</p>
@@ -239,56 +301,67 @@
         </div>
    </div>
    
-    <div class="pricing mt-5">
+    <div id="pricing" class="pricing mt-5">
       <br>
       <br>
       <p class="mt-5 mb-5 text-center pricing__header">PRICING PER BUILD</p>
       
-      <div class="row text-center mx-auto mt-5">
-        <div class="col-md-8  col-lg-3 mx-auto pricing--option">
-         <div class="basic">
-          <p>BASIC</p>
-          <p>Website Audit</p>
-          <p>Design</p>
-          <p>Development</p>
-          <p><button type="submit" class="btn rounded-pill">Request quote</button></p>
-         </div>
-          </div>
-          <div class="col-md-8 col-lg-3 mx-auto pricing--option">
-            <div class="standard">
-              <p>STANDARD</p>
-              <p>Website Audit</p>
-              <p>Design</p>
-             <p>Development</p>
-             <p>Backups</p>
-             <p>Analytics</p>
-             <p>Live Chat</p>
-             <p>Search Engine Optimization</p>
-             <p>Content Management</p>
-            <p><button type="submit" class="btn rounded-pill">Request quote</button></p>
-            </div>
-          </div>
-          <div class="col-md-8 col-lg-4 mx-auto pricing--option">
-            <div class="premium">
-              <p>PREMIUM</p>
-              <p>Website Audit</p>
-              <p>Design</p>
-              <p>Development</p>
-              <p>Backups</p>
-              <p>Analytics</p>
-              <p>Live Chat</p>
-              <p>Search Engine Optimization</p>
-              <p>Content Management</p>
-              <p>Maintenance Agreement</p>
-              <p>eCommerce</p>
-              <p>Email Setup</p>
-              <p>Hosting</p>
-              <p><button type="submit" class="btn rounded-pill">Request quote</button></p>
-            </div>
-
-   
+      <div class="container">
+        <div class="row text-center mx-auto mt-5">
+          <div class="col-md-8 mx-auto col-lg-3  pricing--option">
+            <div class="basic">
+             <h3 class="">BASIC</h3>
+             <ul class="pricing__list">
+               <li>Website Audit</li>
+               <li>Design</li>
+               <li>Development</li>
+               <li><button type="submit" class="btn rounded-pill basic-btn">Request quote</button></li>
+             </ul>
+            
            </div>
-        </div>
+            </div>
+            <div class="col-md-8 mx-auto col-lg-3  pricing--option">
+              <div class="standard ">
+                <h4>STANDARD</h4>
+                <ul class=" pricing__list">
+                  <li>Website Audit</li>
+                  <li>Design</li>
+                 <li>Develoliment</li>
+                 <li>Backups</li>
+                 <li>Analytics</li>
+                 <li>Live Chat</li>
+                 <li>Search Engine Optimization</li>
+                 <li>Content Management</li>
+                 <li><button type="submit" class="btn rounded-pill standard-btn">Request quote</button></li>
+                </ul>
+  
+             
+              </div>
+            </div>
+            <div class="col-md-8 col-lg-4 mx-auto pricing--option">
+              <div class="premium ">
+               <h4>PREMIUM</h4>
+               <ul class="pricing__list">
+                <li>Website Audit</li>
+                <li>Design</li>
+                <li>Development</li>
+                <li>Backups</li>
+                <li>Analytics</li>
+                <li>Live Chat</li>
+                <li>Search Engine Optimization</li>
+                <li>Content Management</li>
+                <li>Maintenance Agreement</li>
+                <li>eCommerce</li>
+                <li>Email Setup</li>
+                <li>Hosting</li>
+                <li><button type="submit" class="btn rounded-pill premium-btn">Request quote</button></p>
+               </ul>
+              </div>
+  
+     
+             </div>
+          </div>
+      </div>
 
 
       </div>
@@ -342,5 +415,6 @@
   </main>
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 </body>
 </html>                                             
